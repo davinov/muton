@@ -21,7 +21,7 @@ export default {
   },
 
   created() {
-    this.note = new Note(440);
+    this.note = new Note(this.freq);
   },
 
   methods: {
@@ -37,9 +37,7 @@ export default {
 
 <style scoped>
 .keyboard-key {
-  background: black;
+  border: solid black 1px;
   cursor: pointer;
-  height: 50px;
-  width: 50px;
 }
 </style>

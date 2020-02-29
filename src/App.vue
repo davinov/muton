@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <KeyboardKey/>
+    <Keyboard />
   </div>
 </template>
 
 <script>
-import KeyboardKey from "./components/KeyboardKey.vue";
+import Keyboard from "./components/Keyboard.vue";
 
 export default {
   name: "Muton",
   components: {
-    KeyboardKey
+    Keyboard
   }
 };
 </script>

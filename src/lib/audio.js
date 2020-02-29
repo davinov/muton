@@ -32,5 +32,6 @@ export class Note {
   _initOscillator() {
     this.oscillator = audioContext.createOscillator();
     this.oscillator.connect(masterGainNode);
+    this.oscillator.frequency.value = this.freq;
   }
 }

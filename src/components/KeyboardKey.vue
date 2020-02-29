@@ -7,6 +7,7 @@
     @touchstart="play"
     @touchdown="stop"
     @touchleave="stop"
+    @touchcancel="stop"
   />
 </template>
 
@@ -31,6 +32,10 @@ export default {
     stop() {
       this.note.stop();
     }
+  },
+
+  beforeDestroy() {
+    this.stop();
   }
 };
 </script>
@@ -39,5 +44,7 @@ export default {
 .keyboard-key {
   border: solid black 1px;
   cursor: pointer;
+  touch-action: none;
+  user-select: none;
 }
 </style>

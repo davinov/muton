@@ -8,30 +8,20 @@ const masterGainNode = audioContext.createGain();
 masterGainNode.connect(audioContext.destination);
 
 export class Note {
-  oscillator = undefined;
+  oscillator = audioContext.createOscillator();
 
   constructor(freq, type) {
     this.freq = freq;
     this.type = type;
-  }
-
-  play() {
-    if (!this.oscillator) {
-      this._initOscillator();
-    }
+    this.oscillator.frequency.value = this.freq;
     this.oscillator.start();
   }
 
-  stop() {
-    if (this.oscillator) {
-      this.oscillator.stop();
-    }
-    this.oscillator = undefined;
+  play() {
+    this.oscillator.connect(masterGainNode);
   }
 
-  _initOscillator() {
-    this.oscillator = audioContext.createOscillator();
-    this.oscillator.connect(masterGainNode);
-    this.oscillator.frequency.value = this.freq;
+  stop() {
+    this.oscillator.disconnect(masterGainNode);
   }
 }

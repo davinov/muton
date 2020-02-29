@@ -12,12 +12,20 @@
 <script>
 import KeyboardKey from "./KeyboardKey";
 
-// Keys from G3 to G4 on a regular piano
+// Keys from D3 to D4 on a regular piano
 // Formula from https://en.wikipedia.org/wiki/Piano_key_frequencies
-const KEYS = [...Array(13)].map(function(_, i) {
+// const KEYS = [...Array(13)].map(function(_, i) {
+//   return {
+//     idx: i,
+//     freq: 440 * Math.pow(2, (i - 10) / 12)
+//   };
+// });
+
+// A division of the octave in 17 tones instead of 12
+const KEYS = [...Array(18)].map(function(_, i) {
   return {
     idx: i,
-    freq: 440 * Math.pow(2, (i - 10) / 12)
+    freq: 293.665 * Math.pow(2, i / 17)
   };
 });
 
